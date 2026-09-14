@@ -7,8 +7,8 @@ type Service struct {
 	movieService *movie.Service
 }
 
-func NewService(repo *Repository) *Service {
-	return &Service{repo: repo}
+func NewService(repo *Repository, movieService *movie.Service) *Service {
+	return &Service{repo: repo, movieService: movieService}
 }
 
 func (s *Service) Create(archive *Archive) error {

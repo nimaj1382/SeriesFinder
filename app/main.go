@@ -18,7 +18,7 @@ func main() {
 	movieService := movie.NewService(movieRepo)
 
 	archiveRepo := archive.NewRepository(database)
-	archiveService := archive.NewService(archiveRepo)
+	archiveService := archive.NewService(archiveRepo, movieService)
 
 	for {
 		fmt.Println("1. Search for a movie\n2. Add a archive\n3. Update all archives\n4. Exit")
