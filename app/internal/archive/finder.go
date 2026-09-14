@@ -25,6 +25,10 @@ func Crawl(url string, depth int, movieService *movie.Service) error {
 		trimed := body[start+6:]
 		end := bytes.Index(trimed, []byte("\""))
 		link := string(trimed[:end-1])
+		if trimed[end-1] != '/' {
+			body = trimed[end+1:]
+			continue
+		}
 		body = trimed[end+1:]
 		if link == ".." {
 			continue
